@@ -3,23 +3,45 @@ let username = prompt('please enter your user name');
 
 document.getElementById('username').textContent = username; 
 
-
+const sound1 = new Audio('./assets/gaming.mp3')
+const sound2 = new Audio('./assets/q.mp3')
+const sound3 = new Audio('./assets/e.mp3')
+const sound4 = new Audio('./assets/mouse-click-104737.mp3')
 
 document.getElementById('rename').addEventListener('click', (e) => {
+  sound4.play();
   username = prompt('Enter your new name');
   document.getElementById('username').textContent = username;
 })
 
 document.getElementById('game').addEventListener('click', (e) => { 
+  sound1.play();
   play_rps(); 
 })
+
+document.addEventListener('keydown', (e) => { 
+    if (e.key === 'Enter') 
+    sound2.play(); 
+}) 
+
+document.addEventListener('keydown', (e) => { 
+    if (e.key === 'Shift') 
+    sound3.play(); 
+}) 
 
 alert('welcome ' + username + '!');
 alert('you are going to play rock paper scissors vs a computer');
 alert('if you win, you receive a cake, lose, receive coal!');
 
 
-function play_rps() {
+function play_rps() 
+{
+
+sound1.play(); 
+sound2.play(); 
+sound3.play(); 
+sound4.play(); 
+
 document.getElementById('rps').innerHTML = "";
 let choice = prompt('choose one: rock, paper, or scissors');
 
@@ -61,4 +83,3 @@ else {
   document.getElementById('rps').appendChild(coal);
 }
 }
-
